@@ -1,8 +1,8 @@
 module MailsViewer
   class HomeController < ActionController::Base
     layout false
-    before_filter :disabled_on_production
-    before_filter :find_absolute_filename, only: [:raw, :html, :attachment, :plain]
+    before_action :disabled_on_production
+    before_action :find_absolute_filename, only: [:raw, :html, :attachment, :plain]
 
     def index
       if File.exist?(mails_path)
